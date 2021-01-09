@@ -3,6 +3,7 @@ import { App } from "./App"
 import { createMemoryHistory } from 'history'
 import { render } from "@testing-library/react"
 import { Router } from "react-router-dom"
+import { Home } from "./Home/Home"
 
 describe("App", () => {
   it("renders successfully", () => {
@@ -26,3 +27,4 @@ describe("App", () => {
     expect(container.innerHTML).toMatch("Home")
   })
 })
+jest.mock("./Home", () => ({ Home: () => <div>Home</div> }))
