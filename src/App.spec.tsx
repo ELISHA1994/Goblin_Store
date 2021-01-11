@@ -5,6 +5,12 @@ import { render } from "@testing-library/react"
 import { Router } from "react-router-dom"
 import { Home } from "./Home/Home"
 
+
+// Uncorked, The Photograph, A fall from grace, The Banker, All day and night, Miss Jeneteenth
+jest.mock("./Home", () => ({ Home: () => <div>Home</div> }))
+
+
+
 describe("App", () => {
   it("renders successfully", () => {
     const history = createMemoryHistory()
@@ -27,4 +33,3 @@ describe("App", () => {
     expect(container.innerHTML).toMatch("Home")
   })
 })
-jest.mock("./Home", () => ({ Home: () => <div>Home</div> }))
