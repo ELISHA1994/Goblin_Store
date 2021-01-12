@@ -1,5 +1,5 @@
 import React from "react"
-import { useCart } from "../CartContext"
+import { useCartContext } from "../CartContext"
 import { Product } from "../shared/types"
 
 interface ProductProps {
@@ -7,7 +7,7 @@ interface ProductProps {
 }
 
 export const ProductCard = ({ datum }: ProductProps) => {
-  const { addToCart, products } = useCart()
+  const { addToCart, products } = useCartContext()
 
   const isInCart = !!products?.find((product) => datum.name === product.name)
 

@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useCart } from "../CartContext/CartContext"
+import { useCartContext } from "../CartContext"
 import { CartItem } from "./CartItem"
 
 export const Cart = () => {
-  const { products, removeFromCart, totalPrice } = useCart()
+  const { products, removeFromCart, totalPrice } = useCartContext()
   if (!products.length) {
     return <>Your cart is empty. <Link to="/">Back to main page.</Link></>
   }

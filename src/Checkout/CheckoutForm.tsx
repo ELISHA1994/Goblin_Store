@@ -1,6 +1,6 @@
 import React from "react"
 import { submitCheckout, CheckoutPayload } from "../utils/api"
-import { useCart } from "../CartContext/CartContext"
+import { useCartContext } from "../CartContext/CartContext"
 import { FormField } from "./FormField"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
@@ -28,7 +28,7 @@ const validationSchema = yup.object().shape({
 export const CheckoutForm = ({
   submit = submitCheckout,
 }: CheckoutFormProps) => {
-  const { clearCart, products } = useCart()
+  const { clearCart, products } = useCartContext()
   const { register, errors, handleSubmit } = useForm({
     mode: "onBlur",
     validationSchema,
@@ -36,7 +36,7 @@ export const CheckoutForm = ({
 
   const onSubmit = handleSubmit(async (data) => {
     const { orderId } = await submit({
-      products 
+      products
     })
     clearCart()
     window.location.assign(`/order/?orderId=${orderId}`)
