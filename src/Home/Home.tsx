@@ -18,6 +18,7 @@ export const Home = ({useProductsHook = useProducts}: HomeProps) => {
   }
 
   if (error) {
+    console.log(error)
     return <>Error</>
   }
 
